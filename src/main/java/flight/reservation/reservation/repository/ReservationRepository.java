@@ -3,14 +3,13 @@ package flight.reservation.reservation.repository;
 import flight.reservation.reservation.entity.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 public interface ReservationRepository extends JpaRepository<Reservation,Integer> {
-    Optional<List<Reservation>> findByMemberMemberId(int memberId);
+    List<Reservation> findByMember_MemberId(String memberId);
 
-    Optional<Reservation> findByReservationId(int reservationId);
+    Reservation findByReservationId(Integer reservationId);
 
-    Optional<List<Reservation>> findByReservationDate(Date reservationDate);
+    List<Reservation> findByReservationDate(LocalDateTime reservationDate);
 }

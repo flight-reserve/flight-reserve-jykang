@@ -1,8 +1,7 @@
-package flight.reservation.filght.controller;
+package flight.reservation.flight.controller;
 
-import flight.reservation.filght.dto.AirplaneDto;
-import flight.reservation.filght.entity.Airplane;
-import flight.reservation.filght.service.AirplaneService;
+import flight.reservation.flight.dto.AirplaneDto;
+import flight.reservation.flight.service.AirplaneService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,15 +17,15 @@ public class AirplaneController {
     private final AirplaneService airplaneService;
 
     //항공기 전체조회
-    @GetMapping("/")
-    public ResponseEntity<List<Airplane>> inquiryFlight(){
+    @GetMapping
+    public ResponseEntity<List<AirplaneDto>> inquiryFlight(){
         return new ResponseEntity<>(airplaneService.inquiryFlight(), HttpStatus.OK);
     }
 
     //항공기 추가
-    @PostMapping("/")
-    public ResponseEntity<Airplane> addFlight(@RequestBody Airplane airplane){
-        return new ResponseEntity<>(airplaneService.saveFlight(airplane),HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<AirplaneDto> addFlight(@RequestBody AirplaneDto airplaneDto){
+        return new ResponseEntity<>(airplaneService.saveFlight(airplaneDto),HttpStatus.OK);
     }
 
     //항공기 변경
@@ -37,14 +36,14 @@ public class AirplaneController {
     }
     
     //항공기 취소
-    @DeleteMapping("/{airplaneId}")
-    public ResponseEntity<Airplane> deleteFlight(@PathVariable("airplaneId") int airplaneId) {
+    @PatchMapping("/{airplaneId}/delete")
+    public ResponseEntity<AirplaneDto> deleteFlight(@PathVariable("airplaneId") int airplaneId) {
         return new ResponseEntity<>(airplaneService.deleteFlight(airplaneId),HttpStatus.OK);
     }
 
     //특정 항공기 조회
     @GetMapping("/{airplaneId}")
-    public ResponseEntity<Airplane> inquirySpecificFlight(@PathVariable("airplaneId") int airplaneId) {
+    public ResponseEntity<AirplaneDto> inquirySpecificFlight(@PathVariable("airplaneId") int airplaneId) {
         return new ResponseEntity<>(airplaneService.inquirySpecificFlight(airplaneId),HttpStatus.OK);
     }
 

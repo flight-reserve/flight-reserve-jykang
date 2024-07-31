@@ -1,18 +1,17 @@
-package flight.reservation.filght.dto;
+package flight.reservation.flight.dto;
 
-import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 
 
-@Data
+@Getter
+@NoArgsConstructor
 @AllArgsConstructor
 public class FlightHistoryDto {
 
     //항공편 ID
-    int flightId;
+    Integer flightId;
 
     //출발지
     String departure;
@@ -32,7 +31,7 @@ public class FlightHistoryDto {
     //변경일자
     LocalDate updatedDate;
     //가격
-    int price;
+    Integer price;
 
     //상태
     String state;

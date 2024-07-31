@@ -1,14 +1,14 @@
 package flight.reservation.reservation.entity;
 
-import flight.reservation.filght.entity.Flight;
+import flight.reservation.flight.entity.Flight;
 import flight.reservation.member.entity.Member;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
 @Entity
-@Data
+@Getter
 public class ReservationHistory {
 
     //예약아이디
