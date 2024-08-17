@@ -1,8 +1,5 @@
 package flight.reservation.member.entity;
 
-import flight.reservation.flight.dto.FlightDto;
-import flight.reservation.flight.entity.Airplane;
-import flight.reservation.flight.entity.Flight;
 import flight.reservation.member.dto.MemberDto;
 import flight.reservation.reservation.entity.Reservation;
 import flight.reservation.reservation.entity.ReservationHistory;
@@ -10,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 
 import java.time.LocalDateTime;
 import java.util.List;

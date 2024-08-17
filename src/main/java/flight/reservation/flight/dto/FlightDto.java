@@ -1,6 +1,8 @@
 package flight.reservation.flight.dto;
 
 import flight.reservation.flight.entity.Flight;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -18,22 +20,20 @@ public class FlightDto {
     private Integer airplaneId;
 
     //출발지
+    @NotBlank
     private String departure;
 
     //도착지
+    @NotBlank
     private String destination;
 
     //가는편
+    @NotNull
     private LocalDateTime outbound;
 
     //오는편
+    @NotNull
     private LocalDateTime inbound;
-
-    //생성일자
-    private LocalDateTime createdDate;
-
-    //변경일자
-    private LocalDateTime updatedDate;
 
     //가격
     private Integer price;
@@ -50,12 +50,9 @@ public class FlightDto {
                 flight.getDestination(),
                 flight.getOutbound(),
                 flight.getInbound(),
-                flight.getCreatedDate(),
-                flight.getUpdatedDate(),
                 flight.getPrice(),
                 flight.getState()
         );
     }
-
 
 }

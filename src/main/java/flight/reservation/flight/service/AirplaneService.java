@@ -16,9 +16,7 @@ public class AirplaneService {
     private final AirplaneRepository airplaneRepository;
 
     public AirplaneDto saveFlight(AirplaneDto airplaneDto) {
-//       Airplane airplane = new Airplane();
-//       airplane.setCapacity(airplaneDto.getCapacity());
-//       airplane.setAirplaneType(airplaneDto.getAirplaneType());
+
         Airplane airplane = Airplane.createFromDto(airplaneDto);
         Airplane saveAirplane = airplaneRepository.save(airplane);
         return new AirplaneDto(saveAirplane.getAirplaneId(), saveAirplane.getCapacity(), saveAirplane.getAirplaneType(), saveAirplane.getUseyn());
@@ -30,11 +28,7 @@ public class AirplaneService {
         List<AirplaneDto> airplaneDtoList = new ArrayList<>();
 
         for (Airplane airplane : airplanes) {
-//            AirplaneDto airplaneDto = new AirplaneDto();
-//            airplaneDto.setAirplaneId(airplane.getAirplaneId());
-//            airplaneDto.setAirplaneType(airplane.getAirplaneType());
-//            airplaneDto.setCapacity(airplane.getCapacity());
-//            airplaneDto.setUseyn(airplane.getUseyn());
+
             AirplaneDto airplaneDto = AirplaneDto.fromEntity(airplane);
 
             airplaneDtoList.add(airplaneDto);
@@ -46,8 +40,7 @@ public class AirplaneService {
     public AirplaneDto updateFlight(Integer airplaneId, AirplaneDto airplaneDto) {
         Airplane airplane = airplaneRepository.findByAirplaneId(airplaneId);
         airplane.updateFlightDetails(airplaneDto.getCapacity(), airplaneDto.getAirplaneType());
-//        airplane.setCapacity(airplaneDto.getCapacity());
-//        airplane.setAirplaneType(airplaneDto.getAirplaneType());
+
         Airplane updatedAirplane = airplaneRepository.save(airplane);
         
         return new AirplaneDto(updatedAirplane.getAirplaneId(), updatedAirplane.getCapacity(), updatedAirplane.getAirplaneType(), updatedAirplane.getUseyn());

@@ -5,11 +5,15 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@EntityListeners(AuditingEntityListener.class) //생성 및 변경일자 자동 기록
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class FlightHistory {
 
@@ -45,9 +49,11 @@ public class FlightHistory {
     private LocalDateTime inbound;
 
     //생성일자
+    @CreatedDate
     private LocalDateTime createdDate;
 
     //변경일자
+    @LastModifiedDate
     private LocalDateTime updatedDate;
 
     //상태

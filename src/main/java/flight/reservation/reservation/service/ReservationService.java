@@ -39,7 +39,11 @@ public class ReservationService {
     //예약 추가
     public void saveReservation(ReservationDto reservationDto) {
         Member member = memberRepository.findByMemberId(reservationDto.getMemberId());
+        //MemberDto memberDto = MemberDto.fromEntity(member); //entity to dto
+
         Flight flight = flightRepository.findByFlightId(reservationDto.getReservationId());
+        //FlightDto flightDto = FlightDto.fromEntity(flight);
+
         Reservation reservation = Reservation.createFromDto(member,flight);
         reservationRepository.save(reservation);
     }

@@ -1,7 +1,11 @@
 package flight.reservation.flight.dto;
 
 import flight.reservation.flight.entity.Airplane;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
 
 
 @Getter
@@ -13,10 +17,14 @@ public class AirplaneDto {
     private Integer airplaneId;
 
     //수용가능인원
+    @NotNull
+    @Max(10)
     private Integer capacity;
 
     //항공기종류
+    @NotBlank
     private String airplaneType;
+
 
     private String useyn;
 
