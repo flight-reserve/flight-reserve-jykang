@@ -11,20 +11,17 @@ import flight.reservation.reservation.entity.ReservationHistory;
 import flight.reservation.reservation.repository.ReservationHistoryRepository;
 import flight.reservation.reservation.repository.ReservationRepository;
 import flight.reservation.util.CommonErrorCode;
-import flight.reservation.util.ErrorCode;
 import flight.reservation.util.RestApiException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor

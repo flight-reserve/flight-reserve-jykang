@@ -1,7 +1,5 @@
 package flight.reservation.reservation.dto;
 
-import flight.reservation.flight.entity.Flight;
-import flight.reservation.member.entity.Member;
 import flight.reservation.reservation.entity.Reservation;
 import lombok.*;
 

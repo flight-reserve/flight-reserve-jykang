@@ -1,7 +1,5 @@
 package flight.reservation.member.dto;
 
-import flight.reservation.flight.dto.FlightDto;
-import flight.reservation.flight.entity.Flight;
 import flight.reservation.member.entity.Member;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

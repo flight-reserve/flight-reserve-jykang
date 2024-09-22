@@ -5,12 +5,13 @@ import flight.reservation.member.entity.Member;
 import flight.reservation.reservation.dto.ReservationDto;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class ReservationHistory {
 
     //예약아이디
