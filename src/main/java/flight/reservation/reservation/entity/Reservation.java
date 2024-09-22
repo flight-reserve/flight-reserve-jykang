@@ -3,6 +3,7 @@ package flight.reservation.reservation.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import flight.reservation.flight.entity.Flight;
 import flight.reservation.member.entity.Member;
+import flight.reservation.reservation.dto.ReservationDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -50,17 +51,20 @@ public class Reservation {
     @JsonIgnore
     private List<ReservationHistory> reservationHistories;
 
-    // 생성자
-    public Reservation(Member memberId, Flight flightId) {
-        this.member = memberId;
-        this.flight = flightId;
 
-
+    public Reservation(Member member, Flight flight, LocalDateTime reservationDate, Integer price, String state) {
+        this.member=member;
+        this.flight=flight;
+        this.reservationDate=reservationDate;
+        this.price=price;
+        this.state=state;
     }
 
+    // 생성자
+
     // 정적 팩토리 메서드: DTO에서 엔티티로 변환 -> 객체타입인 경우는 제외
-    public static Reservation createFromDto(Member member, Flight flight) {
-        return new Reservation(member,flight);
+    public static Reservation createFromDto(Member member, Flight flight, ReservationDto reservationDto) {
+        return new Reservation(member,flight,reservationDto.getReservationDate(),reservationDto.getPrice(),reservationDto.getState());
     }
 
     public void setState(String state) {

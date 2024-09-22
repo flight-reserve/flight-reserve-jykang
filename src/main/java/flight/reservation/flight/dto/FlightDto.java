@@ -35,6 +35,9 @@ public class FlightDto {
     @NotNull
     private LocalDateTime inbound;
 
+    //수용가능인원
+    private Integer capacity;
+
     //가격
     private Integer price;
 
@@ -50,6 +53,7 @@ public class FlightDto {
                 flight.getDestination(),
                 flight.getOutbound(),
                 flight.getInbound(),
+                flight.getCapacity(),
                 flight.getPrice(),
                 flight.getState()
         );

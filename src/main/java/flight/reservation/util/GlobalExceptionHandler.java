@@ -31,6 +31,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(CommonErrorCode.INVALID_PARAMETER, e.getMessage());
     }
 
+
     // @Valid 어노테이션으로 넘어오는 에러 처리 - MethodArgumentNotValidException
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(

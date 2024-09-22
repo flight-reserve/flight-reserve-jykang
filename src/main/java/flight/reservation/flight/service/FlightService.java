@@ -34,6 +34,7 @@ public class FlightService {
         return flightDtoList;
     }
 
+    //항공편 추가
     public void saveFlight(FlightDto flightDto){
         Airplane airplane = airplaneRepository.findByAirplaneId(flightDto.getAirplaneId());
         Flight flight = Flight.createFromDto(airplane,flightDto);
@@ -45,7 +46,7 @@ public class FlightService {
         flightHistoryRepository.save(flightHistory);
     }
 
-    //항공기/항공기 이력 변경
+    //항공편/항공편 이력 변경
     public FlightDto updateFlight(Integer flightId, FlightDto flightDto){
         Flight flight = flightRepository.findByFlightId(flightId);
         flight.updateFlightDetails(flightDto);
@@ -57,10 +58,10 @@ public class FlightService {
 
         flightHistoryRepository.save(flightHistory);
 
-        return new FlightDto(flight.getFlightId(),flight.getAirplane().getAirplaneId(),flight.getDeparture(),flight.getDestination(),flight.getOutbound(),flight.getInbound(),flight.getPrice(),flight.getState());
+        return new FlightDto(flight.getFlightId(),flight.getAirplane().getAirplaneId(),flight.getDeparture(),flight.getDestination(),flight.getOutbound(),flight.getInbound(),flight.getCapacity(),flight.getPrice(),flight.getState());
     }
     
-    //항공기/항공기 이력 취소
+    //항공편/항공편 이력 취소
     public void deleteFlight(Integer flightId) {
         Flight flight = flightRepository.findByFlightId(flightId);
         flight.setState("N");
@@ -73,6 +74,6 @@ public class FlightService {
 
     public FlightDto inquirySpecificFlight(Integer flightId) {
         Flight flight = flightRepository.findByFlightId(flightId);
-        return new FlightDto(flight.getFlightId(),flight.getAirplane().getAirplaneId(),flight.getDeparture(),flight.getDestination(),flight.getOutbound(),flight.getInbound(),flight.getPrice(),flight.getState());
+        return new FlightDto(flight.getFlightId(),flight.getAirplane().getAirplaneId(),flight.getDeparture(),flight.getDestination(),flight.getOutbound(),flight.getInbound(),flight.getCapacity(),flight.getPrice(),flight.getState());
     }
 }

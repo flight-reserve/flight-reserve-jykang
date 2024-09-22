@@ -34,6 +34,8 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+	implementation 'org.redisson:redisson-spring-boot-starter:3.27.0' // Redisson
+
 }
 
 tasks.named('test') {

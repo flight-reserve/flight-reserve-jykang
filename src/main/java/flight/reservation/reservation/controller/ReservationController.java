@@ -26,6 +26,8 @@ public class ReservationController {
     //예약 추가
     @PostMapping
     public ResponseEntity<String> addReservation(@RequestBody ReservationDto reservationdto) {
+        long requestTime = System.currentTimeMillis();
+        System.out.println("Request received at: " + requestTime + "ms by " + reservationdto.getMemberId());
         reservationService.saveReservation(reservationdto);
         return new ResponseEntity<>("예약이 추가되었습니다", HttpStatus.OK);
     }

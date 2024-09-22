@@ -48,6 +48,9 @@ public class FlightHistory {
     //오는편
     private LocalDateTime inbound;
 
+    //수용가능인원
+    private Integer capacity;
+
     //생성일자
     @CreatedDate
     private LocalDateTime createdDate;
@@ -64,13 +67,14 @@ public class FlightHistory {
     private Integer price;
 
     // 생성자
-    private FlightHistory(Flight flight, Airplane airplane, String departure, String destination, LocalDateTime outbound, LocalDateTime inbound, String state, Integer price) {
+    private FlightHistory(Flight flight, Airplane airplane, String departure, String destination, LocalDateTime outbound, LocalDateTime inbound, Integer capacity, String state, Integer price) {
         this.flight=flight;
         this.airplane=airplane;
         this.departure=departure;
         this.destination=destination;
         this.outbound=outbound;
         this.inbound=inbound;
+        this.capacity=capacity;
         this.state=state;
         this.price=price;
 
@@ -79,7 +83,7 @@ public class FlightHistory {
 
     // 정적 팩토리 메서드: DTO에서 엔티티로 변환
     public static FlightHistory createFromDto(Flight flight,Airplane airplane,FlightDto flightDto) {
-        return new FlightHistory(flight, airplane, flightDto.getDeparture(), flightDto.getDestination(), flightDto.getOutbound(), flightDto.getInbound(), flightDto.getState(), flightDto.getPrice());
+        return new FlightHistory(flight, airplane, flightDto.getDeparture(), flightDto.getDestination(), flightDto.getOutbound(), flightDto.getInbound(), airplane.getCapacity(), flightDto.getState(), flightDto.getPrice());
     }
 
     // 필드 업데이트 메서드 (private 접근 수준)

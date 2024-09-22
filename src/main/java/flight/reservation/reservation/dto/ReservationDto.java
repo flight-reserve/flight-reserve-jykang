@@ -32,6 +32,7 @@ public class ReservationDto {
     private String state;
 
 
+
     // 정적 팩토리 메서드: 엔티티에서 DTO로 변환
     public static ReservationDto toDto(Reservation reservation) {
         return new ReservationDto(
@@ -44,5 +45,8 @@ public class ReservationDto {
         );
     }
 
+    public void setPrice(Integer price) {
+        this.price=price;
+    }
 
 }

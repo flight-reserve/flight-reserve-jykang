@@ -15,6 +15,7 @@ public class AirplaneService {
 
     private final AirplaneRepository airplaneRepository;
 
+    //항공기 추가
     public AirplaneDto saveFlight(AirplaneDto airplaneDto) {
 
         Airplane airplane = Airplane.createFromDto(airplaneDto);

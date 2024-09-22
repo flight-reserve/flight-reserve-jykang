@@ -51,6 +51,9 @@ public class Flight {
     //오는편
     private LocalDateTime inbound;
 
+    //수용가능인원
+    private Integer capacity;
+
     //생성일자
     @CreatedDate
     private LocalDateTime createdDate;
@@ -67,12 +70,13 @@ public class Flight {
     private String state;
 
     // 생성자
-    private Flight(Airplane airplane, String departure, String destination, LocalDateTime outbound, LocalDateTime inbound, String state, int price) {
+    private Flight(Airplane airplane, String departure, String destination, LocalDateTime outbound, LocalDateTime inbound, Integer capacity, String state, Integer price) {
         this.airplane = airplane;
         this.departure = departure;
         this.destination = destination;
         this.outbound = outbound;
         this.inbound = inbound;
+        this.capacity=capacity;
         this.state = state;
         this.price = price;
     }
@@ -80,7 +84,7 @@ public class Flight {
 
     // 정적 팩토리 메서드: DTO에서 엔티티로 변환
     public static Flight createFromDto(Airplane airplane, FlightDto flightDto) {
-        return new Flight(airplane, flightDto.getDeparture(), flightDto.getDestination(), flightDto.getOutbound(), flightDto.getInbound(), flightDto.getState(), flightDto.getPrice());
+        return new Flight(airplane, flightDto.getDeparture(), flightDto.getDestination(), flightDto.getOutbound(), flightDto.getInbound(), airplane.getCapacity(),flightDto.getState(), flightDto.getPrice());
     }
 
     // 필드 업데이트 메서드 (private 접근 수준)
@@ -99,5 +103,9 @@ public class Flight {
 
     public void setState(String state) {
         this.state=state;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity=capacity;
     }
 }

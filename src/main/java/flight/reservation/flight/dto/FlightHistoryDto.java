@@ -11,29 +11,32 @@ import java.time.LocalDate;
 public class FlightHistoryDto {
 
     //항공편 ID
-    Integer flightId;
+    private Integer flightId;
 
     //출발지
-    String departure;
+    private String departure;
 
     //도착지
-    String destination;
+    private String destination;
 
     //가는편
-    LocalDate outbound;
+    private LocalDate outbound;
 
     //오는편
-    LocalDate inbound;
+    private LocalDate inbound;
+
+    //수용가능인원
+    private Integer capacity;
 
     //생성일자
-    LocalDate createdDate;
+    private LocalDate createdDate;
 
     //변경일자
-    LocalDate updatedDate;
+    private LocalDate updatedDate;
     //가격
-    Integer price;
+    private Integer price;
 
     //상태
-    String state;
+    private String state;
 
 }
